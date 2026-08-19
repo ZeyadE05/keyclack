@@ -137,3 +137,12 @@ KeyClack/
 ## 📄 License
 
 Distributed under the MIT License. See `LICENSE` for details.
+
+---
+
+## 🛠 Built With
+
+- **Swift / SwiftUI**
+- **Core Audio & I/O Kit APIs**
+- Prototyped and built with assistance from AI-assisted development tools (Cursor / Claude)
+
