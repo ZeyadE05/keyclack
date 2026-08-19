@@ -2,20 +2,20 @@
 import PackageDescription
 
 let package = Package(
-    name: "Klack",
+    name: "KeyClack",
     platforms: [
         .macOS(.v13)
     ],
     products: [
         .executable(
-            name: "Klack",
-            targets: ["Klack"]
+            name: "KeyClack",
+            targets: ["KeyClack"]
         )
     ],
     targets: [
         .executableTarget(
-            name: "Klack",
-            path: "Sources/Klack"
+            name: "KeyClack",
+            path: "Sources/KeyClack"
         )
     ]
 )

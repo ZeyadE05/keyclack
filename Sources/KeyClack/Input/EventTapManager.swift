@@ -22,7 +22,7 @@ public final class EventTapManager {
     
     private func handleEvent(proxy: CGEventTapProxy, type: CGEventType, event: CGEvent) -> Unmanaged<CGEvent>? {
         if type == .tapDisabledByTimeout || type == .tapDisabledByUserInput {
-            print("[Klack EventTap] Tap disabled by system (timeout/load). Auto-recovering...")
+            print("[KeyClack EventTap] Tap disabled by system (timeout/load). Auto-recovering...")
             if let tap = eventTap {
                 CGEvent.tapEnable(tap: tap, enable: true)
             }
@@ -78,7 +78,7 @@ public final class EventTapManager {
             callback: eventCallback,
             userInfo: selfPtr
         ) else {
-            print("[Klack EventTap] Failed to create event tap. Accessibility permission needed.")
+            print("[KeyClack EventTap] Failed to create event tap. Accessibility permission needed.")
             return false
         }
         
@@ -89,7 +89,7 @@ public final class EventTapManager {
             CFRunLoopAddSource(CFRunLoopGetMain(), source, .commonModes)
             CGEvent.tapEnable(tap: tap, enable: true)
             isRunning = true
-            print("[Klack EventTap] Global keystroke tap active.")
+            print("[KeyClack EventTap] Global keystroke tap active.")
             return true
         }
         
@@ -105,6 +105,6 @@ public final class EventTapManager {
         eventTap = nil
         runLoopSource = nil
         isRunning = false
-        print("[Klack EventTap] Global keystroke tap stopped.")
+        print("[KeyClack EventTap] Global keystroke tap stopped.")
     }
 }

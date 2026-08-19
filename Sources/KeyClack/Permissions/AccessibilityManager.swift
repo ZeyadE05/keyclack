@@ -15,7 +15,7 @@ public final class AccessibilityManager {
         let options = [kAXTrustedCheckOptionPrompt.takeUnretainedValue() as String: true] as CFDictionary
         let isTrusted = AXIsProcessTrustedWithOptions(options)
         if !isTrusted {
-            print("[Klack AccessibilityManager] Prompting for Accessibility permission.")
+            print("[KeyClack AccessibilityManager] Prompting for Accessibility permission.")
         }
     }
     

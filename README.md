@@ -1,8 +1,8 @@
-# ⌨️ Klack (KeyClack)
+# ⌨️ KeyClack
 
 > **Satisfying mechanical keyboard audio for every macOS keystroke.**
 
-**Klack** (KeyClack) is a lightweight, native macOS menu bar application built with Swift and `AVAudioEngine`. It plays crisp, realistic mechanical keyboard switch sound effects system-wide in real-time as you type in any application.
+**KeyClack** is a lightweight, native macOS menu bar application built with Swift and `AVAudioEngine`. It plays crisp, realistic mechanical keyboard switch sound effects system-wide in real-time as you type in any application.
 
 ---
 
@@ -26,7 +26,7 @@
   - Uses macOS native `AVAudioEngine` with a multi-node round-robin player pool (`AVAudioPlayerNode`) for ultra-low latency playback.
   - High-definition in-memory procedural audio synthesis — no large sample download required!
 - 📁 **Custom WAV Sound Pack Support**:
-  - Override synthesized profiles or add your own `.wav` samples by placing files into `~/.config/klack/sounds/<Profile Name>/`.
+  - Override synthesized profiles or add your own `.wav` samples by placing files into `~/.config/keyclack/sounds/<Profile Name>/`.
 
 ---
 
@@ -53,7 +53,7 @@ cd keyclack
 swift run
 ```
 
-### 3. Build standalone macOS App Bundle (`Klack.app`)
+### 3. Build standalone macOS App Bundle (`KeyClack.app`)
 
 Use the included build script to compile a release binary and generate an ad-hoc signed `.app` bundle:
 
@@ -64,12 +64,12 @@ chmod +x build.sh
 
 The compiled application bundle will be saved at:
 ```text
-build/Klack.app
+build/KeyClack.app
 ```
 
 To launch the app bundle:
 ```bash
-open build/Klack.app
+open build/KeyClack.app
 ```
 
 ---
@@ -78,10 +78,10 @@ open build/Klack.app
 
 Because macOS protects keyboard inputs for security, system-wide key loggers and event taps require **Accessibility Permissions**.
 
-1. When you first launch **Klack**, a dialog will ask for Accessibility access.
+1. When you first launch **KeyClack**, a dialog will ask for Accessibility access.
 2. Open **System Settings** → **Privacy & Security** → **Accessibility**.
-3. Toggle the switch next to **Klack** (or your Terminal / IDE if running via `swift run`) to **ON**.
-4. If permissions are missing, Klack's menu bar icon will display `Accessibility: Required (Click to Fix)`. Clicking it will open System Settings directly for you.
+3. Toggle the switch next to **KeyClack** (or your Terminal / IDE if running via `swift run`) to **ON**.
+4. If permissions are missing, KeyClack's menu bar icon will display `Accessibility: Required (Click to Fix)`. Clicking it will open System Settings directly for you.
 
 ---
 
@@ -89,11 +89,11 @@ Because macOS protects keyboard inputs for security, system-wide key loggers and
 
 You can supply your own custom `.wav` sound files for any profile!
 
-Klack checks the user config directory `~/.config/klack/sounds/<Profile Name>/` on startup and profile selection. If custom WAV files exist, Klack loads them instead of procedural audio.
+KeyClack checks the user config directory `~/.config/keyclack/sounds/<Profile Name>/` on startup and profile selection. If custom WAV files exist, KeyClack loads them instead of procedural audio.
 
 ### Supported File Structure:
 ```text
-~/.config/klack/sounds/Cherry MX Blue (Clicky)/
+~/.config/keyclack/sounds/Cherry MX Blue (Clicky)/
 ├── keyDown.wav
 ├── keyUp.wav
 ├── spaceDown.wav
@@ -109,14 +109,14 @@ Klack checks the user config directory `~/.config/klack/sounds/<Profile Name>/` 
 ## 🏗 Project Structure
 
 ```text
-Klack/
+KeyClack/
 ├── Package.swift               # Swift PM executable package manifest
 ├── Info.plist                  # macOS App bundle property list
 ├── AppIcon.icns                # Application icon bundle
-├── build.sh                    # Script to build & package Klack.app
+├── build.sh                    # Script to build & package KeyClack.app
 ├── make_icon.sh                # Script to generate AppIcon.icns
 ├── Sources/
-│   └── Klack/
+│   └── KeyClack/
 │       ├── main.swift          # AppKit NSApplication entry point & delegate
 │       ├── Audio/
 │       │   ├── SoundEngine.swift           # AVAudioEngine & player pool manager

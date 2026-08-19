@@ -50,9 +50,9 @@ public final class SoundEngine {
         
         do {
             try engine.start()
-            print("[Klack SoundEngine] Audio Engine started successfully.")
+            print("[KeyClack SoundEngine] Audio Engine started successfully.")
         } catch {
-            print("[Klack SoundEngine] Error starting engine: \(error.localizedDescription)")
+            print("[KeyClack SoundEngine] Error starting engine: \(error.localizedDescription)")
         }
     }
     
@@ -60,16 +60,16 @@ public final class SoundEngine {
         currentProfile = profile
         let format = engine.outputNode.outputFormat(forBus: 0)
         
-        // First check if custom wav files exist in user config directory ~/.config/klack/sounds/<profile>/
+        // First check if custom wav files exist in user config directory ~/.config/keyclack/sounds/<profile>/
         let customBuffers = loadCustomWavBuffers(for: profile, format: format)
         
         if !customBuffers.isEmpty {
             soundBuffers = customBuffers
-            print("[Klack SoundEngine] Loaded custom WAV buffers for \(profile.rawValue)")
+            print("[KeyClack SoundEngine] Loaded custom WAV buffers for \(profile.rawValue)")
         } else {
             // Synthesize high-fidelity procedural PCM buffers in memory
             soundBuffers = ProceduralSynthesizer.generateBufferSet(for: profile, format: format)
-            print("[Klack SoundEngine] Synthesized procedural buffers for \(profile.rawValue)")
+            print("[KeyClack SoundEngine] Synthesized procedural buffers for \(profile.rawValue)")
         }
     }
     
@@ -77,7 +77,7 @@ public final class SoundEngine {
         var buffers: [SoundCategory: AVAudioPCMBuffer] = [:]
         let fileManager = FileManager.default
         let home = fileManager.homeDirectoryForCurrentUser
-        let profileDir = home.appendingPathComponent(".config/klack/sounds/\(profile.rawValue)")
+        let profileDir = home.appendingPathComponent(".config/keyclack/sounds/\(profile.rawValue)")
         
         for category in SoundCategory.allCases {
             let fileURL = profileDir.appendingPathComponent("\(category.rawValue).wav")
@@ -88,7 +88,7 @@ public final class SoundEngine {
                     try file.read(into: buffer)
                     buffers[category] = buffer
                 } catch {
-                    print("[Klack SoundEngine] Could not read \(fileURL.path): \(error)")
+                    print("[KeyClack SoundEngine] Could not read \(fileURL.path): \(error)")
                 }
             }
         }

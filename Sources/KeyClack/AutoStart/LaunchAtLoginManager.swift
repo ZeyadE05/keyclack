@@ -19,13 +19,13 @@ public final class LaunchAtLoginManager {
                 do {
                     if newValue {
                         try SMAppService.mainApp.register()
-                        print("[Klack AutoStart] Enabled launch at login via SMAppService.")
+                        print("[KeyClack AutoStart] Enabled launch at login via SMAppService.")
                     } else {
                         try SMAppService.mainApp.unregister()
-                        print("[Klack AutoStart] Disabled launch at login via SMAppService.")
+                        print("[KeyClack AutoStart] Disabled launch at login via SMAppService.")
                     }
                 } catch {
-                    print("[Klack AutoStart] Failed to update launch at login status: \(error)")
+                    print("[KeyClack AutoStart] Failed to update launch at login status: \(error)")
                 }
             } else {
                 UserDefaults.standard.set(newValue, forKey: "LaunchAtLogin")

@@ -27,23 +27,23 @@ public final class MenuBarController: NSObject, NSMenuDelegate {
         if let button = statusItem.button {
             if #available(macOS 11.0, *) {
                 let config = NSImage.SymbolConfiguration(pointSize: 14, weight: .medium)
-                button.image = NSImage(systemSymbolName: "keyboard.fill", accessibilityDescription: "Klack Keyboard Sounds")?
+                button.image = NSImage(systemSymbolName: "keyboard.fill", accessibilityDescription: "KeyClack Keyboard Sounds")?
                     .withSymbolConfiguration(config)
             } else {
-                button.title = "⌨️ Klack"
+                button.title = "⌨️ KeyClack"
             }
-            button.toolTip = "Klack - Mechanical Keyboard Sounds"
+            button.toolTip = "KeyClack - Mechanical Keyboard Sounds"
         }
     }
     
     private func setupMenu() {
-        menu = NSMenu(title: "Klack")
+        menu = NSMenu(title: "KeyClack")
         menu.delegate = self
         
         // 1. Header / Status
-        let headerItem = NSMenuItem(title: "Klack Mechanical Audio", action: nil, keyEquivalent: "")
+        let headerItem = NSMenuItem(title: "KeyClack Mechanical Audio", action: nil, keyEquivalent: "")
         let headerFont = NSFont.boldSystemFont(ofSize: 13)
-        headerItem.attributedTitle = NSAttributedString(string: "Klack Audio Engine", attributes: [.font: headerFont])
+        headerItem.attributedTitle = NSAttributedString(string: "KeyClack Audio Engine", attributes: [.font: headerFont])
         headerItem.isEnabled = false
         menu.addItem(headerItem)
         
@@ -97,7 +97,7 @@ public final class MenuBarController: NSObject, NSMenuDelegate {
         menu.addItem(NSMenuItem.separator())
         
         // 7. Quit Application
-        let quitItem = NSMenuItem(title: "Quit Klack", action: #selector(quitPressed), keyEquivalent: "q")
+        let quitItem = NSMenuItem(title: "Quit KeyClack", action: #selector(quitPressed), keyEquivalent: "q")
         quitItem.target = self
         menu.addItem(quitItem)
         

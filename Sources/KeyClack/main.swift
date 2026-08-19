@@ -4,7 +4,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     private var menuBarController: MenuBarController?
     
     func applicationDidFinishLaunching(_ notification: Notification) {
-        print("[Klack] Initializing Klack Menu Bar Agent...")
+        print("[KeyClack] Initializing KeyClack Menu Bar Agent...")
         
         // Force accessory activation policy (no dock icon, menu bar agent)
         NSApp.setActivationPolicy(.accessory)
@@ -19,15 +19,15 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         if AccessibilityManager.shared.isAccessibilityGranted {
             EventTapManager.shared.start()
         } else {
-            print("[Klack] Accessibility permissions missing on startup. Prompting user...")
+            print("[KeyClack] Accessibility permissions missing on startup. Prompting user...")
             AccessibilityManager.shared.checkAndPromptAccessibilityPermission()
         }
         
-        print("[Klack] Application launch complete.")
+        print("[KeyClack] Application launch complete.")
     }
     
     func applicationWillTerminate(_ notification: Notification) {
-        print("[Klack] Terminating Klack...")
+        print("[KeyClack] Terminating KeyClack...")
         EventTapManager.shared.stop()
     }
 }
